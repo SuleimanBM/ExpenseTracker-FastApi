@@ -1,4 +1,5 @@
 from pydantic import BaseModel,EmailStr
+from uuid import UUID
 
 
 class UserIn(BaseModel):
@@ -6,10 +7,16 @@ class UserIn(BaseModel):
     firstname:str
     lastname:str
     password:str
+    phonenumber:str
 
 class UserOut(BaseModel):
     firstname:str
     lastname:str
     email:EmailStr
-    id:int
-    
+    id:UUID
+    phonenumber:str
+
+# model for updates coming
+class UserUpdateIn(BaseModel):
+    id:UUID
+    phonenumber:str
